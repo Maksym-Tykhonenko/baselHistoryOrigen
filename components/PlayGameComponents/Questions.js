@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.maroon,
     paddingVertical: 10,
     borderRadius: 32,
-    height: 150,
-    justifyContent:'center'
+    height: 120,
+    justifyContent: 'center',
   },
   text: {
     textAlign: 'center',

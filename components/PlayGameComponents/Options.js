@@ -53,7 +53,7 @@ export default Options;
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 13,
+    marginVertical: 5,
     backgroundColor: COLORS.warm,
     borderRadius: 32,
     padding: 5,

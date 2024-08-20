@@ -1,12 +1,19 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {MainBg, MainLayout} from '../components/layout';
 import {COLORS} from '../constant/colors';
 import {book} from '../data/bookOfKnoladge';
-
+//<MainBg> </MainBg>;
+//backgroundColor: COLORS.black + 90
 const BookScreen = () => {
   return (
-    <MainBg>
-      <MainLayout style={{backgroundColor: COLORS.black + 90}}>
+    <View style={{flex: 1}}>
+      <ImageBackground source={require('../assets/apgr/bcgr.png')}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{padding: 10}}>
@@ -19,8 +26,8 @@ const BookScreen = () => {
             </View>
           ))}
         </ScrollView>
-      </MainLayout>
-    </MainBg>
+      </ImageBackground>
+    </View>
   );
 };
 
@@ -32,7 +39,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 30,
     fontWeight: '600',
-    color:COLORS.mandarin
+    color: COLORS.mandarin,
   },
   text: {
     fontSize: 18,

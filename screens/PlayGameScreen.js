@@ -1,4 +1,4 @@
-import {Modal, StyleSheet, View, Text} from 'react-native';
+import {Modal, StyleSheet, View, Text, ScrollView} from 'react-native';
 import GameLayout from '../components/layout/GameLayout';
 import {useContext, useEffect, useState} from 'react';
 import {GameContext} from '../store/context';
@@ -103,34 +103,37 @@ const PlayGameScreen = ({route}) => {
 
   return (
     <GameLayout>
-      <Statistic
-        score={score}
-        length={questions.length}
-        currentIndex={currentIndex + 1}
-        level={level}
-        setTimeOut={setTimerFinish}
-        resetTimer={resetTimer}
-      />
-      <Questions question={thisQuestion} />
-      <Options
-        options={thisOptions}
-        onPress={checkValidation}
-        disable={disableOption}
-        correctOption={correctOption}
-        currentOption={currentOption}
-      />
-      {next && <NextBtn onPress={showNext} />}
-      <Modal visible={showModal} animationType="slide" transparent={true}>
-        <GameOverModal
-          closeModal={() => setShowModal(false)}
-          restart={() => restartGame()}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Statistic
           score={score}
+          length={questions.length}
+          currentIndex={currentIndex + 1}
           level={level}
-          id={subjectId}
-          currentIndex={currentIndex}
-          dataLength={quizData.length - 1}
+          setTimeOut={setTimerFinish}
+          resetTimer={resetTimer}
         />
-      </Modal>
+        <Questions question={thisQuestion} />
+        <Options
+          options={thisOptions}
+          onPress={checkValidation}
+          disable={disableOption}
+          correctOption={correctOption}
+          currentOption={currentOption}
+        />
+        {next && <NextBtn onPress={showNext} />}
+        <Modal visible={showModal} animationType="slide" transparent={true}>
+          <GameOverModal
+            closeModal={() => setShowModal(false)}
+            restart={() => restartGame()}
+            score={score}
+            level={level}
+            id={subjectId}
+            currentIndex={currentIndex}
+            dataLength={quizData.length - 1}
+          />
+        </Modal>
+        <View style={{height: 100}}></View>
+      </ScrollView>
     </GameLayout>
   );
 };
